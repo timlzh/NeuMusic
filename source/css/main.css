@@ -1,0 +1,30 @@
+body{
+  background: #F1F1F1;
+}
+
+
+.nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+}
+
+.nav_btn{
+  width: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn_arrow{
+  height: 30px;
+  width: 30px;
+  border: none;
+  font-size: 1.3em;
+  background: #F1F1F1;
+  border-radius: 25%;
+  background: #f1f1f1;
+  box-shadow:  3px 3px 4px #cdcdcd,
+              -3px -3px 4px #ffffff;
+}
