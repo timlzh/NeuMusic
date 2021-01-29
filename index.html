@@ -22,9 +22,6 @@
 
   <!-- JQuery -->
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-
-  <!--  JS  -->
-  <script src="source/js/fitText.js"></script>
 </head>
 
 <body>
@@ -111,18 +108,25 @@
       </div>
     </div>
     <div class="bar_process">
-      <div class="bar_loop_svg">
+      <div class="bar_loop_svg" onclick="changeLoopMethod()">
         <embed src="source/img/loop.svg" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
       </div>
-      <i class="fas fa-backward" id="bar_backward"></i>
-      <i class="fas fa-play" id="bar_play"></i>
-      <i class="fas fa-pause" id="bar_pause" style="display:none"></i>
-      <i class="fas fa-forward" id="bar_forward"></i>
+      <i class="fas fa-backward" id="bar_backward" onclick="changeSong(0)"></i>
+      <i class="fas fa-play" id="bar_play" onclick="startToPlay()"></i>
+      <i class="fas fa-pause" id="bar_pause" style="display:none" onclick="pausePlaying()"></i>
+      <i class="fas fa-forward" id="bar_forward" onclick="changeSong(1)"></i>
     </div>
   </div>
 </body>
 
 <!-- Scripts -->
+<script src="source/js/tooles.js"></script>
+<script src="source/js/play.js"></script>
+<script src="source/js/login.js"></script>
+<script src="source/js/bar.js"></script>
+<script src="source/js/me.js"></script>
+<script src="source/js/list.js"></script>
 <script src="source/js/main.js"></script>
+
 
 </html>
