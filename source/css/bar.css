@@ -25,12 +25,11 @@
 }
 
 .bar_process {
-    width: 10%;
+    width: 13%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 2vw 0 1vw;
-
 }
 
 .bar_process i {
@@ -51,7 +50,7 @@
 }
 
 
-.totalProgress{
+.totalProgress {
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -62,14 +61,24 @@
     transition: all 0.1s linear;
 }
 
-.totalProgress:hover{
+.totalProgress:hover {
     background-color: #00000030;
     transition: all 0.1s linear;
 }
 
-.currentProgress{
+.currentProgress {
     width: 0;
     height: 100%;
     background-color: #00a1d6;
     transition: all 0.1s linear;
+}
+
+.bar_loop_svg{
+    width: 13%;
+}
+
+.bar_loop_svg embed {
+    width: 1.5em;
+    height: 1.5em;
+    pointer-events: none;
 }
