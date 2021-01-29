@@ -1,0 +1,114 @@
+.nav a{
+    color: #000000;
+    text-decoration: none;
+}
+
+/* 顶栏 */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 60px;
+    width: 100%;
+}
+
+/* 前进后退按钮 */
+.nav_btns {
+    width: 150px;
+    display: flex;
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+
+.btn_arrow {
+    height: 40px;
+    width: 40px;
+    border: none;
+    font-size: 1.3em;
+    background: #F1F1F1;
+    border-radius: 10px;
+    background: #f1f1f1;
+    box-shadow: 4px 4px 4px #cdcdcd, -4px -4px 4px #ffffff;
+    /* 上下左右居中 */
+    text-align: center;
+    line-height: 40px;
+    margin: 10px;
+    transition: all 0.1s linear;
+    
+}
+
+.btn_arrow:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
+
+/* 跳转链接 */
+.nav_links {
+    font-size: 1.4em;
+    font-weight: bold;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    float: center;
+}
+
+/* 搜索 */
+.nav_box{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.search_box{
+    width: 300px;
+    background: #F1F1F1;
+    display: flex;
+    justify-content: flex-start;
+    height: 40px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: inset 4px 4px 5px #cdcdcd,
+            inset -3px -3px 6px #ffffff60;
+}
+
+.search_input {
+    font-family: 'Barlow',Consolas;
+    font-size: 20px;
+    background: transparent;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.search_btn{
+    margin-left: 10px;
+    text-align: center;
+    color: #00000070;
+    transition: all 0.1s linear;
+}
+
+.nav_avatar{
+    height: 40px;
+    width: 40px;
+    border: none;
+    font-size: 1.3em;
+    background: #F1F1F1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #cdcdcd, -4px -4px 4px #ffffff;
+    /* 上下左右居中 */
+    text-align: center;
+    line-height: 40px;
+    margin: 10px;
+    transition: all 0.1s linear;
+    
+}
+
+/* 头像 */
+.nav_avatar:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}

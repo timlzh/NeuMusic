@@ -1,0 +1,78 @@
+.me{
+    margin: 0 auto 0 5%;
+    width: 40vw;
+    height: calc(81vh - 60px);
+    border-radius: 10%;
+}
+
+.me_info{
+    width: 100%;
+    height: 15vw;
+    display: flex;
+}
+
+.me_avatar{
+    width: 15vw;
+    height: 13vw;
+    border-radius: 10%;
+    box-shadow: 1vh 1vh 2vh #cdcdcd,
+    -0.9vh -0.9vh 2vh #ffffff;
+}
+
+.me_greeting{
+    width: 25vw;
+    margin-left: 5vw;
+}
+
+.good{
+    font-size: 3vw;
+    color: #00000070;
+}
+
+.user_id{
+    font-size: 5vw;
+    color: #000000;
+}
+
+.hitokoto{
+    font-size: 1vw;
+    color: #00000070;
+    margin-top: 1%;
+}
+
+.my_play_lists{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.creat_lists{
+    padding-right: 10%;
+}
+
+.fav_lists{
+    
+}
+
+.list_cover{
+    width: 13vw;
+    height: 13vw;
+    border-radius: 10%;
+    box-shadow: 1vh 1vh 2vh #cdcdcd,
+    -0.9vh -0.9vh 2vh #ffffff;
+    background-size: 100% 100% !important;
+    transition: all 0.1s linear;
+}
+
+.list_cover:hover{
+    transform: scale(1.03);
+    transition: all 0.1s linear;
+}
+
+.list_name{
+    line-height: 7vh;
+    font-size: 1.5vw;
+    color: #00000070;
+}

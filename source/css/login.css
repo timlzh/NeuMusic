@@ -1,0 +1,77 @@
+
+/* .login{
+    width: 800px;
+    height: 600px;
+    border-radius: 60px;
+    background: #F1F1F1;
+    box-shadow: inset 5px 5px 10px #cdcdcd,
+                inset -5px -5px 10px #ffffff;
+} */
+
+.login i{
+    margin-left: 10px;
+    text-align: center;
+    color: #00000070;
+    transition: all 0.1s linear;
+    font-size: 1.2em;
+}
+
+.login_box{
+    width: 600px;
+    background: #F1F1F1;
+    display: flex;
+    height: 50px;
+    border-radius: 15px;
+    align-items: center;
+    box-shadow: inset 4px 4px 5px #cdcdcd,
+            inset -3px -3px 6px #ffffff60;
+    margin: 40px 100px 40px 100px;
+}
+
+.login input{
+    font-family: 'Barlow',Consolas;
+    font-size: 1.2em;
+    background: transparent;
+    height: 45px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.login_btn_box{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 100px 20px 100px;
+}
+
+.login_btn{
+    width: 250px;
+    background: #F1F1F1;
+    height: 50px;
+    border-radius: 15px;
+    align-items: center;
+    box-shadow: 4px 4px 5px #cdcdcd,
+             -3px -3px 6px #ffffff60;
+    
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 50px;
+    transition: all 0.1s linear;
+}
+
+.login_btn:active{
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
+
+.login_btn i{
+    margin-right: 10px;
+}
+
+.change_login{
+    width: 800px;
+}
+
+.change_login a{
+    float: right;
+    margin-right: 110px;
+}

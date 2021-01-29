@@ -8,34 +8,109 @@
 
   <!-- Style Sheets -->
   <link rel="stylesheet" type="text/css" href="source/css/main.css">
-
+  <link rel="stylesheet" type="text/css" href="source/css/login.css">
+  <link rel="stylesheet" type="text/css" href="source/css/nav.css">
+  <link rel="stylesheet" type="text/css" href="source/css/list.css">
+  <link rel="stylesheet" type="text/css" href="source/css/me.css">
+  <link rel="stylesheet" type="text/css" href="source/css/bar.css">
 
   <!-- Fonts -->
   <link href='https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css' rel='stylesheet' type='text/css'>
 
+  <!-- Md5 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+
+  <!-- JQuery -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
 </head>
 
 <body>
+  <div><audio class="playing" id="audio"></audio></div>
   <!-- 顶部导航栏 -->
-  <nav class = 'nav'>
-    <div class = 'nav_btns'>
-      <button class = 'btn_arrow'><i class = 'fas fa-arrow-left'></i></button>
-      <button class = 'btn_arrow'><i class = 'fas fa-arrow-right'></i></button>
+  <nav class='nav'>
+
+    <div class='nav_btns'>
+      <div class='btn_arrow'><i class='fas fa-arrow-left' onclick="javascript:window.history.back()"></i></div>
+      <div class='btn_arrow'><i class='fas fa-arrow-right' onclick="javascript:window.history.back()"></i></div>
     </div>
-    <div class = 'nav_links'>
-      <a>首页</a>
-      <a>发现</a>
-      <a>正在播放</a>
+
+    <div class='nav_links'>
+      <a>首页</a> <a>发现</a> <a>正在播放</a>
     </div>
-    <div class = 'nav_box'>
-      <div class = "searchBox">
-        <i class = "fas fa-search"></i>
-        <input class = "search_Input">
+
+    <div class="nav_box">
+      <div class="search_box">
+        <a class="search_btn"><i class="fas fa-search"></i></a>
+        <input class="search_input" placeholder="搜索">
+      </div>
+
+      <div class="nav_avatar" id="avatar">
+        <a class="go_login" href="login.html"><i class="fas fa-user-alt" id="avatar_i"></i></a>
       </div>
     </div>
-    
-  </nav>
 
+  </nav>
+  <div class="contianer">
+    <div class="login">
+      <div class="login_box"><i class="fas fa-envelope"></i><i class="fas fa-mobile-alt"></i><input id="account_input"
+          placeholder="请输入网易云音乐账号">
+      </div>
+      <div class="login_box"><i class="fas fa-lock"></i><input id="pwd_input" type="password" placeholder="请输入网易云音乐密码">
+      </div>
+
+      <div class="login_btn_box">
+        <div class="login_btn"><i class="fas fa-check"></i></div>
+        <div class="login_btn"><i class="far fa-address-card"></i></div>
+      </div>
+
+      <div class="change_login"><a id="loginMethodChanger">使用手机号登录</a></div>
+    </div>
+
+    <div class="me">
+      <div class="me_info">
+        <div class="me_avatar" id="avatar"></div>
+        <div class="me_greeting">
+          <span class="good">Good Morning</span></br>
+          <span class="user_id">USERNAME</span></br></br>
+          <span class="hitokoto"></span>
+        </div>
+      </div>
+      <div class="my_play_lists">
+        <div class="creat_lists">
+          <div class="list_cover" id="creat_list_cover"></div>
+          <span class="list_name">我创建的歌单</span>
+        </div>
+
+        <div class="fav_lists">
+          <div class="list_cover" id="fav_list_cover"></div>
+          <span class="list_name">我收藏的歌单</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="list_info">播放列表</div>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="totalProgress">
+      <div class="currentProgress"></div>
+    </div>
+    <div class="bar_cover_img"></div>
+    <div class="bar_song_info">
+      <span class="item_name" id="bar_song_name"></span>
+      <br>
+      <div class="song_SA">
+        <a class="singer" id="bar_singer"></a> - <a class="album" id="bar_album"></a>
+      </div>
+    </div>
+    <div class="bar_process"><i class="fas fa-backward"></i><i class="fas fa-play" id="bar_play"></i><i
+        class="fas fa-pause" id="bar_pause" style="display:none"></i><i class="fas fa-forward"></i></i></div>
+  </div>
 </body>
+
+<!-- Scripts -->
+<script src="source/js/main.js"></script>
 
 </html>

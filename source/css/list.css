@@ -1,0 +1,92 @@
+.list {
+    width: 40vw;
+    height: calc(75vh - 60px);
+    margin: 0 1% 2% auto;
+    overflow-y: auto;
+    background: #F1F1F1;
+    box-shadow: inset 0.5vh 0.5vh 0.8vh #cdcdcd,
+        inset -0.5vh -0.5vh 1vh #ffffff;
+    border-radius: 3vh;
+    padding: 3vh 3vw 3vh 3vw;
+    text-align: center;
+}
+
+
+.list_info {
+    margin: 2% 0 3% 0;
+    font-size: 2em;
+    width: 100%;
+    text-align: left;
+    color: #00000090;
+}
+
+.item {
+    display: flex;
+    border: #cdcdcd solid 1px;
+    padding: 2%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 2%;
+    transition: all 0.1s linear;
+}
+
+.item_info {
+    font-family: consolas, 'Barlow', "Microsoft Yahei";
+    width: 75%;
+    transition: all 0.1s linear;
+}
+
+.item_name {
+    font-size: 1.5em;
+    color: #000000;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.song_SA {
+    font-size: 1em;
+    color: #00000090 !important;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.playlist_author {
+    font-size: 1em;
+    color: #00000090 !important;
+    transition: all 0.1s linear;
+}
+
+.process {
+    width: min(15vh, 15vw);
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2%;
+    transition: all 0.1s linear;
+}
+
+.process i {
+    text-align: center;
+    font-size: 1em;
+    height: min(4vh, 4vw);
+    width: min(4vh, 4vw);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd,
+        -0.3vh -0.3vh 0.6vh #ffffff;
+}
+
+.process i:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
