@@ -18,7 +18,7 @@ function initMe() {
 function greeting() {
     let time = new Date(), hour = time.getHours();
     if (hour < 6) $(".good").html("Good Night");
-    else if (hour < 9) $(".good").html("Good Moring");
+    else if (hour < 12) $(".good").html("Good Moring");
     else if (hour < 17) $(".good").html("Good Afternoon");
     else if (hour < 23) $(".good").html("Good Evening");
     else $(".good").html("Good Night");

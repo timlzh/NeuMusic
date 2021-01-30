@@ -6,7 +6,7 @@ function startToPlay() {
         //设置播放状态检查定时器
         let timer = setInterval(function () {
             if (audio.ended) {
-                if (playMethod == 0 || playMethod == 2) $("#bar_forward").click();
+                if (playMethod == 0 || playMethod == 2) changeSong(1);
                 else if (playMethod == 1) {
                     audio.currentTime = 0;
                     audio.play();
@@ -87,6 +87,7 @@ function checkSongAvalibility(id) {
 
 //打乱播放列表(随机播放)
 function shuffle() {
+    shuffledPlayingIndexs = [];
     let t, j;
     for (let i = 0; i < playingListId.length; i++) {
         shuffledPlayingIndexs[i] = i;
@@ -102,11 +103,10 @@ function shuffle() {
     localStorage.shuffledPlayingIndexs = JSON.stringify(shuffledPlayingIndexs);
 }
 
-//上/下一首
+//上/下一首 dir为0上一首，1为下一首
 function changeSong(dir) {
     audio.currentTime = 0;
     audio.pause();
-    //dir为0上一首，1为下一首
     localStorage.playingIndex = playingIndex = ((!dir) ? ((playingIndex + playingListId.length - 1) % playingListId.length) : ((playingIndex + 1) % playingListId.length));
     if (playMethod == 2) playSongFromId(playingListId[shuffledPlayingIndexs[playingIndex]], true);
     else playSongFromId(playingListId[playingIndex], true);

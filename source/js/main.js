@@ -12,19 +12,20 @@ let listId = new Array();
 let listSongs;
 let playing;
 let audio = document.getElementById("audio");
-let playingIndex = localStorage.playingIndex;
+let playingIndex;
 let playingListId = new Array();
 let playMethod;
 let playMethodIcon = new Array();
 let shuffledPlayingIndexs = new Array();
 
+playingIndex = parseInt(localStorage.playingIndex) ? parseInt(localStorage.playingIndex) : 0;
 playMethod = (localStorage.playMethod == undefined) ? (localStorage.playMethod = 0) : localStorage.playMethod;
 playingListId = localStorage.playingListId ? JSON.parse(localStorage.playingListId) : [];
 playMethodIcon = ["source/img/loop.svg", "source/img/loop-1.svg", "source/img/random.svg"];
 shuffledPlayingIndexs = localStorage.shuffledPlayingIndexs ? JSON.parse(localStorage.shuffledPlayingIndexs) : [];
 
 function hideAll() {
-    $(".contianer").children().each(function () { 
+    $(".contianer").children().each(function () {
         $(this).hide();
     })
 }
