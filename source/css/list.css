@@ -1,7 +1,8 @@
 .list {
     width: 40vw;
-    height: calc(75vh - 60px);
-    margin: 0 1% 2% auto;
+    min-width: 40vh;
+    height: max(50vh,30vw);
+    /* margin: 0 1% 2% auto; */
     overflow-y: auto;
     background: #F1F1F1;
     box-shadow: inset 0.5vh 0.5vh 0.8vh #cdcdcd,

@@ -2,30 +2,30 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 10vh;
+    height: 75px;
     width: 100%;
     background: #F1f1f1;
     box-shadow: 1vh 1vh 8vh #cdcdcd, 1vh 1vh 8vh #ffffff;
-    border-radius: 3vh 3vh 0 0;
+    /* border-radius: 3vh 3vh 0 0; */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .bar_cover_img {
-    height: 7vh;
-    width: 7vh;
+    height: 55px;
+    width: 55px;
     margin: 0 1vw 0 2vw;
     border-radius: 20%;
     background-size: 100% 100% !important;
 }
 
 .bar_song_info {
-    width: 70%;
+    width: 60%;
 }
 
 .bar_process {
-    width: 16%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,8 +35,8 @@
 .bar_process i {
     text-align: center;
     font-size: 1em;
-    height: min(5vh, 5vw);
-    width: min(5vh, 5vw);
+    height: 45px;
+    width: 45px;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -76,8 +76,8 @@
 .bar_loop_svg{
     text-align: center;
     font-size: 1em;
-    height: min(5vh, 5vw);
-    width: min(5vh, 5vw);
+    height: 45px;
+    width: 45px;
     border-radius: 100%;
     display: flex;
     justify-content: center;
