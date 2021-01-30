@@ -49,7 +49,7 @@ function getUserPlayLists() {
 }
 
 //我创建的歌单
-$(".creat_lists").click(function () {
+$(".creat_lists").unbind('click').click(function () {
     let items = new Array();
     $(userPlayLists.playlist).each(function (i, pl) {
         if (pl.subscribed) return false;
@@ -67,7 +67,7 @@ $(".creat_lists").click(function () {
 });
 
 //我收藏的歌单
-$(".fav_lists").click(function () {
+$(".fav_lists").unbind('click').click(function () {
     let items = new Array();
     $(userPlayLists.playlist).each(function (i, pl) {
         if (!pl.subscribed) return true;

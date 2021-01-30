@@ -17,6 +17,7 @@ let playingListId = new Array();
 let playMethod;
 let playMethodIcon = new Array();
 let shuffledPlayingIndexs = new Array();
+let likeList = new Array();
 
 playingIndex = parseInt(localStorage.playingIndex) ? parseInt(localStorage.playingIndex) : 0;
 playMethod = (localStorage.playMethod == undefined) ? (localStorage.playMethod = 0) : localStorage.playMethod;
@@ -36,7 +37,10 @@ transInputIcon(".search_input", ".search_btn");
 transInputIcon("#account_input", ".fa-envelope");
 transInputIcon("#account_input", ".fa-mobile-alt");
 transInputIcon("#pwd_input", ".fa-lock");
-$("#loginMethodChanger").click();
+$("#loginMethodChanger").unbind('click').click();
 initLogin();
 playSongFromId(lastPlayedId, false);
 $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');
+setInterval(function(){
+    getLikeList();
+}, 3000);

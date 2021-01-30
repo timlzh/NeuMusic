@@ -45,6 +45,9 @@ function playSongFromId(id, play) {
                 $("#bar_song_name").html(playing.songs[0].name);
                 $("#bar_singer").html(playing.songs[0].ar[0].name);
                 $("#bar_album").html(playing.songs[0].al.name);
+                $("#bar_heart").attr("name", id);
+                if (likeList.indexOf(parseInt(id)) >= 0) $("#bar_heart").attr("style", "color: #E79796");
+                else $("#bar_heart").attr("style", "color: #000000");
                 let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
                 $.ajax({
                     url: api_adr,
@@ -119,4 +122,35 @@ function changeLoopMethod() {
     $(".bar_loop_svg").html("");
     $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');
     if (playMethod == 2) shuffle();
+}
+
+function getLikeList(uid) {
+    let api_adr = "http://csgo.itstim.xyz:3000/likelist?" + cookieStr + "&uid=" + uid + "&timestamp="+stamp();
+    $.ajax({
+        url: api_adr,
+        datatype: "json",
+        type: "GET",
+        success: function (data) {
+            if (data.code == "200") {
+                likeList = data.ids;
+            }
+        }
+    });
+}
+
+function likeASong(id) {
+    let fl = likeList.indexOf(parseInt(id));
+    let api_adr = "http://csgo.itstim.xyz:3000/like?" + cookieStr + "&id=" + id + "&like=" + !(fl + 1);
+    $.ajax({
+        url: api_adr,
+        datatype: "json",
+        type: "GET",
+        success: function (data) {
+            if (data.code != "200") {
+                alert("红心失败");
+            }
+        }
+    });
+    getLikeList(uid);
+    return (fl + 1);
 }

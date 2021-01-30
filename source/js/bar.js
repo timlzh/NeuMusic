@@ -1,6 +1,6 @@
 
 //更改进度条
-$(".totalProgress").click(function (el) {
+$(".totalProgress").unbind('click').click(function (el) {
     let ratio = getRatio(el);
     $(".currentProgress").css({
         'width': ratio * 100 + '%'
@@ -17,3 +17,8 @@ function getRatio(el) {
     return ratio;
 }
 
+$("#bar_heart").unbind('click').click(function () {
+    let fl = likeASong($(this).attr("name"));
+    $(this).attr("style",(fl?"color: #000000":"color: #E79796"));
+}
+)

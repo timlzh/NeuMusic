@@ -3,7 +3,9 @@ function appendSongList(item, i) {
     let itemHtml = '<div class="item"><div class="item_info">';
     itemHtml = itemHtml + '<span class="item_name" href = "song" pro = "play"' + ' id = "' + item.id + '" name = "' + i + '">';
     itemHtml = itemHtml + item.name + '</span></br><div class="song_SA"><a class="singer" id= "' + item.ar[0].id + '">';
-    itemHtml = itemHtml + item.ar[0].name + '</a> - <a class="album" id="' + item.al.id + '">' + item.al.name + '</a></div></div><div class="process"><i class="fas fa-play"  href = "song" pro = "play"' + ' id = "' + item.id + '" name = "' + i + '">' + '</i><i class="fas fa-plus"  href = "song" pro = "plus"' + ' id = "' + item.id + '" name = "' + i + '">' + '</i><i class="fas fa-heart"  href = "song" pro = "heart"' + ' id = "' + item.id + '" name = "' + i + '">' + '</i></div></div>';
+    itemHtml = itemHtml + item.ar[0].name + '</a> - <a class="album" id="' + item.al.id + '">' + item.al.name + '</a></div></div><div class="process"><i class="fas fa-play"  href = "song" pro = "play"' + ' id = "' + item.id + '" name = "' + i + '">' + '</i><i class="fas fa-plus"  href = "song" pro = "plus"' + ' id = "' + item.id + '" name = "' + i + '">' + '</i>';
+    if(likeList.indexOf(item.id) >= 0) itemHtml = itemHtml + '<i class="fas fa-heart"  href = "song" pro = "heart"' + ' name = "' + item.id + '" style ="color : #E79796">' + '</i></div></div>';
+    else itemHtml = itemHtml + '<i class="fas fa-heart"  href = "song" pro = "heart"' + ' name = "' + item.id + '" style ="color : #000000">' + '</i></div></div>';
     listId[i] = item.id;
     $(itemHtml).appendTo($(".list"));
     initItem();
@@ -35,10 +37,10 @@ function changeList(list_info, items, type) {
 
 //为列表里的item绑定点击事件
 function initItem() {
-    $(".item_name").click(function () {
+    $(".item_name").unbind('click').click(function () {
         itemClick($(this));
     });
-    $(".process i").click(function () {
+    $(".process i").unbind('click').click(function () {
         itemClick($(this));
     })
 }
@@ -73,6 +75,9 @@ function itemClick(el) {
             if (playMethod == 2) shuffle();
         } else if (pro == "plus") {
             playAtNext(id);
+        } else if (pro == "heart"){
+            let fl = likeASong(el.attr("name"));
+            $(this).attr("style",(fl?"color: #000000":"color: #E79796"));
         }
 
     }

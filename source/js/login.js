@@ -1,5 +1,5 @@
 //登录
-$(".login_btn").click(function () {
+$(".login_btn").unbind('click').click(function () {
     let account = $("#account_input").val();
 
     if ($("#pwd_input").val() == "") {
@@ -56,7 +56,7 @@ function transInputIcon(input, i) {
 }
 
 //更换登录样式
-$("#loginMethodChanger").click(function () {
+$("#loginMethodChanger").unbind('click').click(function () {
     if (loginMethod) {
         loginMethod = 0;
         $("#loginMethodChanger").html("使用邮箱账号登录");
@@ -91,6 +91,7 @@ function initLogin() {
                 $("#avatar").css("background", 'url(' + avatar_url + ') no-repeat');
                 $("#avatar_i").hide();
                 initMe();
+                getLikeList(uid);
             } else return;
         }
     })
