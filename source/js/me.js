@@ -3,6 +3,7 @@ function initMe() {
     $(".me").show();
     $(".list").show();
     $(".user_id").html(nickname);
+    greeting();
     getUserPlayLists();
 
     fetch('https://v1.hitokoto.cn?c=i')
@@ -12,6 +13,15 @@ function initMe() {
         })
         .catch(console.error)
 
+}
+
+function greeting() {
+    let time = new Date(), hour = time.getHours();
+    if (hour < 6) $(".good").html("Good Night");
+    else if (hour < 9) $(".good").html("Good Moring");
+    else if (hour < 17) $(".good").html("Good Afternoon");
+    else if (hour < 23) $(".good").html("Good Evening");
+    else $(".good").html("Good Night");
 }
 
 //获取用户的播放列表
@@ -37,7 +47,6 @@ function getUserPlayLists() {
         }
     })
 }
-
 
 //我创建的歌单
 $(".creat_lists").click(function () {

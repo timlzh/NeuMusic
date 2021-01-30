@@ -95,3 +95,23 @@ function initLogin() {
         }
     })
 }
+
+function logout() {
+    let api_adr = "http://csgo.itstim.xyz:3000/logout";
+    $.ajax({
+        url: api_adr,
+        datatype: "json",
+        type: "GET",
+        success: function (data) {
+            console.log(data);
+            if (data.code == "200") {
+                loginStatus = 0;
+                hideAll();
+                $(".login").show();
+                $("#avatar").css("background", '');
+                $("#avatar_i").show();
+                loginCookie = localStorage.cookie = "";
+            } else return;
+        }
+    })
+}

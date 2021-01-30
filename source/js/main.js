@@ -23,6 +23,12 @@ playingListId = localStorage.playingListId ? JSON.parse(localStorage.playingList
 playMethodIcon = ["source/img/loop.svg", "source/img/loop-1.svg", "source/img/random.svg"];
 shuffledPlayingIndexs = localStorage.shuffledPlayingIndexs ? JSON.parse(localStorage.shuffledPlayingIndexs) : [];
 
+function hideAll() {
+    $(".contianer").children().each(function () { 
+        $(this).hide();
+    })
+}
+
 $(".me").hide();
 $(".list").hide();
 transInputIcon(".search_input", ".search_btn");

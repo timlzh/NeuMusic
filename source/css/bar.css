@@ -25,7 +25,7 @@
 }
 
 .bar_process {
-    width: 13%;
+    width: 16%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -74,11 +74,24 @@
 }
 
 .bar_loop_svg{
-    width: 13%;
+    text-align: center;
+    font-size: 1em;
+    height: min(5vh, 5vw);
+    width: min(5vh, 5vw);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
 }
 
 .bar_loop_svg embed {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
     pointer-events: none;
+}
+
+.bar_loop_svg:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
 }

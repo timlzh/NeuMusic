@@ -1,4 +1,4 @@
-.nav a{
+.nav a {
     color: #000000;
     text-decoration: none;
 }
@@ -7,7 +7,7 @@
 .nav {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     height: 60px;
     width: 100%;
 }
@@ -29,13 +29,13 @@
     background: #F1F1F1;
     border-radius: 10px;
     background: #f1f1f1;
-    box-shadow: 4px 4px 4px #cdcdcd, -4px -4px 4px #ffffff;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
     /* 上下左右居中 */
     text-align: center;
     line-height: 40px;
     margin: 10px;
     transition: all 0.1s linear;
-    
+
 }
 
 .btn_arrow:active {
@@ -54,7 +54,7 @@
 }
 
 /* 搜索 */
-.nav_box{
+.nav_box {
     display: flex;
     width: 400px;
     justify-content: space-between;
@@ -64,7 +64,7 @@
     margin-right: 5%;
 }
 
-.search_box{
+.search_box {
     width: 300px;
     background: #F1F1F1;
     display: flex;
@@ -72,43 +72,63 @@
     height: 40px;
     border-radius: 10px;
     align-items: center;
-    box-shadow: inset 4px 4px 5px #cdcdcd,
-            inset -3px -3px 6px #ffffff60;
+    box-shadow: inset 0.2vh 0.2vh 1vh #cdcdcd,inset -0.3vh -0.3vh 1vh #ffffff;
+    margin-right: 10px;
 }
 
 .search_input {
-    font-family: 'Barlow',Consolas;
+    font-family: 'Barlow', Consolas;
     font-size: 20px;
     background: transparent;
     height: 40px;
     margin-left: 10px;
 }
 
-.search_btn{
+.search_btn {
     margin-left: 10px;
     text-align: center;
     color: #00000070;
     transition: all 0.1s linear;
 }
 
-.nav_avatar{
+.nav_avatar {
     height: 40px;
     width: 40px;
     border: none;
     font-size: 1.3em;
     background: #F1F1F1;
     border-radius: 10px;
-    box-shadow: 4px 4px 4px #cdcdcd, -4px -4px 4px #ffffff;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
     /* 上下左右居中 */
     text-align: center;
     line-height: 40px;
     margin: 10px;
     transition: all 0.1s linear;
-    
+
 }
 
 /* 头像 */
 .nav_avatar:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
+
+#sign_out {
+    height: 40px;
+    width: 40px;
+    border: none;
+    font-size: 1.3em;
+    background: #F1F1F1;
+    border-radius: 10px;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
+    /* 上下左右居中 */
+    text-align: center;
+    line-height: 40px;
+    margin: 10px;
+    transition: all 0.1s linear;
+}
+
+#sign_out:active {
     background: linear-gradient(145deg, #d9d9d9, #ffffff);
     transition: all 0.1s linear;
 }
