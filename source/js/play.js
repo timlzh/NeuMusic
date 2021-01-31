@@ -124,6 +124,7 @@ function changeLoopMethod() {
     if (playMethod == 2) shuffle();
 }
 
+//获取喜欢列表
 function getLikeList(uid) {
     let api_adr = "http://csgo.itstim.xyz:3000/likelist?" + cookieStr + "&uid=" + uid + "&timestamp="+stamp();
     $.ajax({
