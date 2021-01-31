@@ -26,7 +26,7 @@ function greeting() {
 
 //获取用户的播放列表
 function getUserPlayLists() {
-    let api_adr = "http://csgo.itstim.xyz:3000/user/playlist?" + cookieStr + "&uid=" + uid;
+    let api_adr = "http://csgo.itstim.xyz:3000/user/playlist?" + cookieStr + "&uid=" + uid + "&timestamp="+stamp();
     $.ajax({
         url: api_adr,
         datatype: "json",
@@ -79,7 +79,45 @@ $(".fav_lists").unbind('click').click(function () {
             "subscribed": 1,
         }
         items[i] = item;
+        subscribedLists.push(parseInt(pl.id));
     });
     changeList("我收藏的歌单", items, "playlist");
     initItem();
 });
+
+function likeASong(id) {
+    let fl = likeList.indexOf(parseInt(id));
+    let api_adr = "http://csgo.itstim.xyz:3000/like?" + cookieStr + "&id=" + id + "&like=" + !(fl + 1);
+    $.ajax({
+        url: api_adr,
+        datatype: "json",
+        type: "GET",
+        success: function (data) {
+            if (data.code != "200") {
+                alert("红心失败");
+            }
+        }
+    });
+    getLikeList(uid);
+    return (fl + 1);
+}
+
+function starAList(id) {
+    let t = 1;
+    if(subscribedLists.indexOf(parseInt(id)) >= 0){
+        t = 2;
+        subscribedLists.splice(subscribedLists.indexOf(parseInt(id)),1);
+    }
+    let api_adr = "http://csgo.itstim.xyz:3000/playlist/subscribe?" + cookieStr + "&id=" + id + "&t=" + t;
+    $.ajax({
+        url: api_adr,
+        datatype: "json",
+        type: "GET",
+        success: function (data) {
+            if (data.code != "200") {
+                alert("收藏失败");
+            }
+        }
+    });
+    return t;
+}

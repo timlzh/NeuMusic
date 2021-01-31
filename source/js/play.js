@@ -137,20 +137,3 @@ function getLikeList(uid) {
         }
     });
 }
-
-function likeASong(id) {
-    let fl = likeList.indexOf(parseInt(id));
-    let api_adr = "http://csgo.itstim.xyz:3000/like?" + cookieStr + "&id=" + id + "&like=" + !(fl + 1);
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        success: function (data) {
-            if (data.code != "200") {
-                alert("红心失败");
-            }
-        }
-    });
-    getLikeList(uid);
-    return (fl + 1);
-}

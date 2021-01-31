@@ -14,6 +14,7 @@ let playing;
 let audio = document.getElementById("audio");
 let playingIndex;
 let playingListId = new Array();
+let subscribedLists = new Array();
 let playMethod;
 let playMethodIcon = new Array();
 let shuffledPlayingIndexs = new Array();

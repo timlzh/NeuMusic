@@ -12,14 +12,15 @@ function appendSongList(item, i) {
 }
 
 //将播放列表添加到列表
-function appendPlayList(item, i) {
+function appendPlayList(item) {
     let itemHtml = '<div class="item"><div class="item_info">';
     itemHtml = itemHtml + '<span class="item_name" href="playlist"' + ' id = "' + item.id + '">';
     itemHtml = itemHtml + item.name + '</span></br><div class="playlist_author"><a class="author">';
-    itemHtml = itemHtml + item.author + '</a></div></div><div class="process"><i class="fas fa-play" href="playlist"' + ' id = "' + item.id + '">' + '</i><i class="fas fa-plus"' + ' id = "' + item.id + '">' + '</i>';
-    if (item.subscribed == -1) itemHtml = itemHtml + '<i class="fas fa-star" style ="color : #00000050" href="playlist"' + ' id = "' + item.id + '">' + '</i></div></div>';
-    else if (item.subscribed) itemHtml = itemHtml + '<i class="fas fa-star" style ="color : #E79796" href="playlist"' + ' id = "' + item.id + '">' + '</i></div></div>';
-    else itemHtml = itemHtml + '<i class="fas fa-star" href="playlist"' + ' id = "' + item.id + '">' + '</i></div></div>';
+    //<i class="fas fa-plus" href = "playlist" pro = "plus"' + ' id = "' + item.id + '">' + '</i>
+    itemHtml = itemHtml + item.author + '</a></div></div><div class="process"><i class="fas fa-play" href="playlist" href = "playlist" pro = "play"' + ' id = " ' + item.id + '">' + '</i>';
+    if (item.subscribed == -1) itemHtml = itemHtml + '<i class="fas fa-star" style ="color : #00000050" href="playlist"' + ' id = "' + item.id + '" href = "playlist" pro = "star">' + '</i></div></div>';
+    else if (item.subscribed) itemHtml = itemHtml + '<i class="fas fa-star" style ="color : #E79796" href="playlist"' + ' id = "' + item.id + '"  href = "playlist" pro = "star">' + '</i></div></div>';
+    else itemHtml = itemHtml + '<i class="fas fa-star" href="playlist"' + ' id = "' + item.id + '"  href = "playlist" pro = "star">' + '</i></div></div>';
     console.log(itemHtml);
     $(itemHtml).appendTo($(".list"));
     initItem();
@@ -59,14 +60,20 @@ function itemClick(el) {
             success: function (data) {
                 console.log(data);
                 if (data.code == "200") {
-                    let ids = new Array();
-                    $(data.playlist.trackIds).each(function (i, trackId) {
-                        ids[i] = trackId.id;
-                    });
                     changeList(data.playlist.name, data.playlist.tracks, "song");
+                    if (pro == "play") {
+                        playSongFromId(data.playlist.trackIds[0].id, true);
+                        localStorage.playingListId = JSON.stringify(playingListId = listId);
+                        localStorage.playingIndex = playingIndex = 0;
+                        if (playMethod == 2) shuffle();
+                    } else if (pro == "star"){
+                        let t = starAList(id);
+                        $(this).attr("style",((t==2)?"color: #000000":"color: #E79796"));
+                    }
                 } else return;
             }
         });
+     
     } else if (type == "song") {
         if (pro == "play") {
             playSongFromId(id, true);
