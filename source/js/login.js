@@ -16,32 +16,22 @@ $(".login_btn").unbind('click').click(function () {
     } else api_adr += "cellphone?phone=" + account + "&md5_password=" + pwd;
     localStorage.api_adr = api_adr;
 
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            console.log(data);
-            AcData = data;
-            if (data.code == "200") {
-                alert("登录成功");
-                loginCookie = data.cookie;
-                localStorage.cookie = loginCookie;
-                cookieStr = "cookie=" + loginCookie;
-                avatar_url = data.profile.avatarUrl + "?param=40y40";
-                console.log(avatar);
-                $("#avatar").css("background", 'url(' + avatar_url + ')');
-                $("#avatar_i").hide();
-                initLogin();
-            } else {
-                alert("用户名或密码错误");
-                $("#pwd_input").value = "";
-            }
-        }
-    })
+    let data;
+    if (data = ajaxGet(api_adr)) { 
+        AcData = data;
+        alert("登录成功");
+        loginCookie = data.cookie;
+        localStorage.cookie = loginCookie;
+        cookieStr = "cookie=" + loginCookie;
+        avatar_url = data.profile.avatarUrl + "?param=40y40";
+        console.log(avatar);
+        $("#avatar").css("background", 'url(' + avatar_url + ')');
+        $("#avatar_i").hide();
+        initLogin();
+    }else{
+        alert("用户名或密码错误");
+        $("#pwd_input").value = "";
+    }
 })
 
 //更换登录样式时更换图标
@@ -75,44 +65,29 @@ $("#loginMethodChanger").unbind('click').click(function () {
 //初始化登录状态
 function initLogin() {
     let api_adr = "http://csgo.itstim.xyz:3000/user/account?" + cookieStr;
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        success: function (data) {
-            console.log(data);
-            if (data.code == "200") {
-                AcData = data;
-                loginStatus = 1;
-                avatar_url = AcData.profile.avatarUrl;
-                nickname = AcData.profile.nickname;
-                uid = AcData.account.id;
-                $(".login").hide();
-                $("#avatar").css("background", 'url(' + avatar_url + ') no-repeat');
-                $("#avatar_i").hide();
-                initMe();
-                getLikeList(uid);
-            } else return;
-        }
-    })
+    let data;
+    if (data = ajaxGet(api_adr)) { 
+        AcData = data;
+        loginStatus = 1;
+        avatar_url = AcData.profile.avatarUrl;
+        nickname = AcData.profile.nickname;
+        uid = AcData.account.id;
+        $(".login").hide();
+        $("#avatar").css("background", 'url(' + avatar_url + ') no-repeat');
+        $("#avatar_i").hide();
+        initMe();
+        getLikeList(uid);
+    }
 }
 
 function logout() {
     let api_adr = "http://csgo.itstim.xyz:3000/logout";
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        success: function (data) {
-            console.log(data);
-            if (data.code == "200") {
-                loginStatus = 0;
-                hideAll();
-                $(".login").show();
-                $("#avatar").css("background", '');
-                $("#avatar_i").show();
-                loginCookie = localStorage.cookie = "";
-            } else return;
-        }
-    })
+    if (ajaxGet(api_adr)) { 
+        loginStatus = 0;
+        hideAll();
+        $(".login").show();
+        $("#avatar").css("background", '');
+        $("#avatar_i").show();
+        loginCookie = localStorage.cookie = "";
+    }
 }

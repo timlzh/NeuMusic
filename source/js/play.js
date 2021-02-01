@@ -1,3 +1,4 @@
+//开始播放
 function startToPlay() {
     if (audio.paused) {
         audio.play();
@@ -21,6 +22,7 @@ function startToPlay() {
     }
 }
 
+//暂停播放
 function pausePlaying() {
     audio.pause();
     $('#bar_play').show();
@@ -33,58 +35,35 @@ function playSongFromId(id, play) {
         return false;
     }
     let api_adr = "http://csgo.itstim.xyz:3000/song/detail?" + cookieStr + "&ids=" + id;
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        success: function (data) {
+    if (playing = ajaxGet(api_adr)) {
+        $(".bar_cover_img").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
+        $("#bar_song_name").html(playing.songs[0].name);
+        $("#bar_singer").html(playing.songs[0].ar[0].name);
+        $("#bar_album").html(playing.songs[0].al.name);
+        $("#bar_heart").attr("name", id);
+        if (likeList.indexOf(parseInt(id)) >= 0) $("#bar_heart").attr("style", "color: #E79796");
+        else $("#bar_heart").attr("style", "color: #000000");
+        let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
+        let data;
+        if (data = ajaxGet(api_adr)) {
             console.log(data);
-            if (data.code == "200") {
-                playing = data;
-                $(".bar_cover_img").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
-                $("#bar_song_name").html(playing.songs[0].name);
-                $("#bar_singer").html(playing.songs[0].ar[0].name);
-                $("#bar_album").html(playing.songs[0].al.name);
-                $("#bar_heart").attr("name", id);
-                if (likeList.indexOf(parseInt(id)) >= 0) $("#bar_heart").attr("style", "color: #E79796");
-                else $("#bar_heart").attr("style", "color: #000000");
-                let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
-                $.ajax({
-                    url: api_adr,
-                    datatype: "json",
-                    type: "GET",
-                    success: function (data) {
-                        console.log(data);
-                        let audioUrl;
-                        audioUrl = (data.code == "200") ? (data.data[0].url) : ("https://music.163.com/song/media/outer/url?id=" + id + ".mp3 ");
-                        lastPlayedId = localStorage.lastPlayedId = id;
-                        $(".playing").attr("src", audioUrl);
-                        if (play) startToPlay();
-                        else pausePlaying();
-                    }
-                });
-            } else return false;
+            let audioUrl;
+            audioUrl = (data.code == "200") ? (data.data[0].url) : ("https://music.163.com/song/media/outer/url?id=" + id + ".mp3 ");
+            lastPlayedId = localStorage.lastPlayedId = id;
+            $(".playing").attr("src", audioUrl);
+            if (play) startToPlay();
+            else pausePlaying();
         }
-    });
+    } else return false;
     return true;
 }
 
-//检查歌曲可用性（待改进
+//检查歌曲可用性
 function checkSongAvalibility(id) {
     let api_adr = "http://csgo.itstim.xyz:3000/check/music?id=" + id;
     let avalibility = false;
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        async: false,
-        timeout: 5000,
-        success: function (data) {
-            console.log(data.success);
-            avalibility = data.success;
-        }
-    });
-    console.log(avalibility);
+    let data;
+    if (data = ajaxGet(api_adr)) avalibility = data.success;
     return avalibility;
 }
 
@@ -126,15 +105,7 @@ function changeLoopMethod() {
 
 //获取喜欢列表
 function getLikeList(uid) {
-    let api_adr = "http://csgo.itstim.xyz:3000/likelist?" + cookieStr + "&uid=" + uid + "&timestamp="+stamp();
-    $.ajax({
-        url: api_adr,
-        datatype: "json",
-        type: "GET",
-        success: function (data) {
-            if (data.code == "200") {
-                likeList = data.ids;
-            }
-        }
-    });
+    let api_adr = "http://csgo.itstim.xyz:3000/likelist?" + cookieStr + "&uid=" + uid + "&timestamp=" + stamp();
+    let data;
+    if (data = ajaxGet(api_adr)) likeList = data.ids;
 }

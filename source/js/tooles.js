@@ -13,15 +13,7 @@ function checkTel(value) {
     }
 }
 
-function colorRGBtoHex(color) {
-    var rgb = color.split(',');
-    var r = parseInt(rgb[0]);
-    var g = parseInt(rgb[1]);
-    var b = parseInt(rgb[2]);
-    var hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-    return hex;
-}
-
+//获取时间戳
 function stamp() {
     var timestamp = new Date().getTime();
     return timestamp;

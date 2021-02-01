@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Music</title>
@@ -25,7 +23,9 @@
 </head>
 
 <body>
-  <div><audio class="playing" id="audio"></audio></div>
+  <!-- 播放歌曲 -->
+  <audio class="playing" id="audio"></audio>
+
   <!-- 顶部导航栏 -->
   <nav class='nav'>
 
@@ -53,7 +53,11 @@
     </div>
 
   </nav>
+
+  <!-- 主体 -->
   <div class="contianer">
+
+    <!-- 登录box -->
     <div class="login">
       <div class="login_box"><i class="fas fa-envelope"></i><i class="fas fa-mobile-alt"></i><input id="account_input"
           placeholder="请输入网易云音乐账号">
@@ -69,6 +73,7 @@
       <div class="change_login"><a id="loginMethodChanger">使用手机号登录</a></div>
     </div>
 
+    <!-- 主页 -->
     <div class="me">
       <div class="me_info">
         <div class="me_avatar" id="avatar"></div>
@@ -93,11 +98,13 @@
       </div>
     </div>
 
+    <!-- 列表 -->
     <div class="list">
       <div class="list_info">播放列表</div>
     </div>
   </div>
 
+  <!-- 底部栏 -->
   <div class="bar">
     <div class="totalProgress">
       <div class="currentProgress"></div>
@@ -131,6 +138,5 @@
 <script src="source/js/me.js"></script>
 <script src="source/js/list.js"></script>
 <script src="source/js/main.js"></script>
-
 
 </html>
