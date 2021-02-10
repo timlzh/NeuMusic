@@ -9,6 +9,8 @@ let nickname;
 let AcData;
 let uid;
 let userPlayLists;
+let userCreatPlaylistIds = new Array();
+let userFavPlaylistIds = new Array();
 let listId = new Array();
 let listSongs;
 let playing;
@@ -20,6 +22,10 @@ let playMethod;
 let playMethodIcon = new Array();
 let shuffledPlayingIndexs = new Array();
 let likeList = new Array();
+let searchMethod = 1;
+let appendToWhere;
+let nowPage = 0;
+let nowWord = "";
 
 //隐藏contianer中的所有元素(可改进)
 function hideAll() {
@@ -41,7 +47,7 @@ function ajaxGet(api_adr) {
             if (data.code == "200") res = data;
         }
     });
-    if(res) return res;
+    if (res) return res;
     else return false;
 }
 
@@ -63,6 +69,3 @@ $("#loginMethodChanger").click();
 initLogin();
 playSongFromId(lastPlayedId, false);
 $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');
-setInterval(function(){
-    getLikeList();
-}, 3000);

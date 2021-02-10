@@ -1,8 +1,14 @@
+$(".nav_avatar").unbind('click').click(function () {
+    hideAll();
+    if(loginStatus) $(".me").show();
+    else $(".login").show();
+})
+
 //初始化主页
 function initMe() {
     $(".me_avatar").css("background", 'url(' + avatar_url + ') no-repeat');
     $(".me").show();
-    $(".list").show();
+    $("#item_list").show();
     $(".user_id").html(nickname);
     greeting();
     getUserPlayLists();
@@ -40,11 +46,16 @@ function getUserPlayLists() {
                 return false;
             }
         });
+        $(userPlayLists.playlist).each(function (i, pl) {
+            if(pl.subscribed) userFavPlaylistIds[i] = pl.id;
+            else userCreatPlaylistIds[i] = pl.id;
+        });
     }
 }
 
 //我创建的歌单
 $(".creat_lists").unbind('click').click(function () {
+    $("#item_list").show();
     let items = new Array();
     $(userPlayLists.playlist).each(function (i, pl) {
         if (pl.subscribed) return false;
@@ -57,12 +68,13 @@ $(".creat_lists").unbind('click').click(function () {
         }
         items[i] = item;
     });
-    changeList("我创建的歌单", items, "playlist");
+    changeList("我创建的歌单", items, "playlistCover", $("#item_list"));
     initItem();
 });
 
 //我收藏的歌单
 $(".fav_lists").unbind('click').click(function () {
+    $("#item_list").show();
     let items = new Array();
     $(userPlayLists.playlist).each(function (i, pl) {
         if (!pl.subscribed) return true;
@@ -76,7 +88,7 @@ $(".fav_lists").unbind('click').click(function () {
         items[i] = item;
         subscribedLists.push(parseInt(pl.id));
     });
-    changeList("我收藏的歌单", items, "playlist");
+    changeList("我收藏的歌单", items, "playlistCover", $("#item_list"));
     initItem();
 });
 

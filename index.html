@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="source/css/list.css">
   <link rel="stylesheet" type="text/css" href="source/css/me.css">
   <link rel="stylesheet" type="text/css" href="source/css/bar.css">
+  <link rel="stylesheet" type="text/css" href="source/css/search.css">
 
   <!-- Fonts -->
   <link href='https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css' rel='stylesheet' type='text/css'>
@@ -98,8 +99,20 @@
       </div>
     </div>
 
+    <div class="list" id="search_list">
+      <div class="ser_pro_bar">
+        <span class="fas fa-arrow-left" id="arrow" href="backward"></span>
+        <span class="change_search_method" id = "csm1" href="1" style="box-shadow: inset 0.2vh 0.2vh 1vh #cdcdcd, inset -0.3vh -0.3vh 0.6vh #ffffff" onclick="changeSearchMethod(1)" >单曲</span>
+        <span class="change_search_method" id = "csm1000" href="1000" onclick="changeSearchMethod(1000)">歌单</span>
+        <span class="change_search_method" id = "csm10" href="10" onclick="changeSearchMethod(10)">专辑</span>
+        <span class="fas fa-arrow-right" id="arrow" href="forward"></span>
+      </div>
+
+
+    </div>
+
     <!-- 列表 -->
-    <div class="list">
+    <div class="list" id="item_list">
       <div class="list_info">播放列表</div>
     </div>
   </div>
@@ -138,5 +151,6 @@
 <script src="source/js/me.js"></script>
 <script src="source/js/list.js"></script>
 <script src="source/js/main.js"></script>
+<script src="source/js/search.js"></script>
 
 </html>

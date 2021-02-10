@@ -1,5 +1,13 @@
 //登录
-$(".login_btn").unbind('click').click(function () {
+$(".login_btn").unbind('click').click(function () { 
+    login();
+})
+
+$("#pwd_input").on('keypress',function(key){
+    if(key.keyCode == 13) login();
+});
+
+function login() {
     let account = $("#account_input").val();
 
     if ($("#pwd_input").val() == "") {
@@ -32,7 +40,7 @@ $(".login_btn").unbind('click').click(function () {
         alert("用户名或密码错误");
         $("#pwd_input").value = "";
     }
-})
+}
 
 //更换登录样式时更换图标
 function transInputIcon(input, i) {

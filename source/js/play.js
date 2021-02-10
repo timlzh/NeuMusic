@@ -31,9 +31,6 @@ function pausePlaying() {
 
 //播放歌曲
 function playSongFromId(id, play) {
-    if (!checkSongAvalibility(id)) {
-        return false;
-    }
     let api_adr = "http://csgo.itstim.xyz:3000/song/detail?" + cookieStr + "&ids=" + id;
     if (playing = ajaxGet(api_adr)) {
         $(".bar_cover_img").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');

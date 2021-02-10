@@ -1,0 +1,100 @@
+.ser_pro_bar {
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -3%;
+    position: fixed;
+    width: 40vw;
+    min-width: 40vh;
+}
+
+#arrow {
+    text-align: center;
+    font-size: 1em;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
+    background: #f1f1f1;
+}
+
+.change_search_method {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.2vh 0.2vh 1vh #cdcdcd, -0.3vh -0.3vh 0.6vh #ffffff;
+    background: #f1f1f1;
+}
+
+.ser_pro_bar span:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
+
+#arrow:active {
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    transition: all 0.1s linear;
+}
+
+.res {
+    width: max(10vw, 10vh);
+    height: max(15vw, 15vh);
+    margin-top: 2vh;
+}
+
+.res_cover {
+    width: max(10vw, 10vh);
+    height: max(10vw, 10vh);
+    border-radius: 10%;
+    box-shadow: 1vh 1vh 2vh #cdcdcd,
+        -0.9vh -0.9vh 2vh #ffffff;
+    transition: all 0.1s linear;
+}
+
+.res_name {
+    font-size: 1em;
+    line-height: 3vw;
+    color: #00000090;
+    font-weight: bold;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.res_cover:hover {
+    transform: scale(1.03);
+    transition: all 0.1s linear;
+}
+
+.res_cover:hover .res_play {
+    display: flex;
+    transition: all 0.1s linear;
+}
+
+.res_play {
+    display: none;
+    width: max(10vw, 10vh);
+    height: max(10vw, 10vh);
+    border-radius: 10%;
+    background: #00000060;
+    justify-content: center;
+    align-items: center;
+    font-size: max(2vw, 2vh);
+}
+
+.res_play i {
+    color: #f1f1f190;
+    cursor: pointer;
+}
