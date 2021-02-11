@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Music</title>
@@ -12,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="source/css/me.css">
   <link rel="stylesheet" type="text/css" href="source/css/bar.css">
   <link rel="stylesheet" type="text/css" href="source/css/search.css">
+  <link rel="stylesheet" type="text/css" href="source/css/playing.css">
 
   <!-- Fonts -->
   <link href='https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.css' rel='stylesheet' type='text/css'>
@@ -36,7 +38,7 @@
     </div>
 
     <div class='nav_links'>
-      <a>首页</a> <a>发现</a> <a>正在播放</a>
+      <a>首页</a> <a>发现</a> <a onclick="showPlaying()">正在播放</a>
     </div>
 
     <div class="nav_box">
@@ -99,12 +101,50 @@
       </div>
     </div>
 
+    <div class="playing_div">
+      <div class="playing_info_div">
+        <div class="playing_cover" id="pic"></div>
+        <div class="playing_info">
+          <div class="playing_SA">
+            <span class="playing_singer"></span>-<span class="playing_album"></span></br>
+          </div>
+          <span class="playing_name"></span>
+          <div class = "playing_album_div">
+            <div class="playing_album_cover" href="album"></div>
+            <span class="playing_album" id ="under_cover"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="playing_bar">
+        <div class="playing_progress">
+          <div class="playing_totalProgress">
+            <div class="playing_currentProgress"></div>
+          </div>
+        </div>
+        <div class="bar_process" id="playing_bar_process">
+          <div class="bar_loop_svg" onclick="changeLoopMethod()">
+            <embed src="source/img/loop.svg" type="image/svg+xml"
+              pluginspage="http://www.adobe.com/svg/viewer/install/" />
+          </div>
+          <i class="fas fa-backward" id="bar_backward" onclick="changeSong(0)"></i>
+          <i class="fas fa-play" id="bar_play" onclick="startToPlay()"></i>
+          <i class="fas fa-pause" id="bar_pause" style="display:none" onclick="pausePlaying()"></i>
+          <i class="fas fa-forward" id="bar_forward" onclick="changeSong(1)"></i>
+          <i class="fas fa-heart" id="bar_heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- 搜索结果列表 -->
     <div class="list" id="search_list">
       <div class="ser_pro_bar">
         <span class="fas fa-arrow-left" id="arrow" href="backward"></span>
-        <span class="change_search_method" id = "csm1" href="1" style="box-shadow: inset 0.2vh 0.2vh 1vh #cdcdcd, inset -0.3vh -0.3vh 0.6vh #ffffff" onclick="changeSearchMethod(1)" >单曲</span>
-        <span class="change_search_method" id = "csm1000" href="1000" onclick="changeSearchMethod(1000)">歌单</span>
-        <span class="change_search_method" id = "csm10" href="10" onclick="changeSearchMethod(10)">专辑</span>
+        <span class="change_search_method" id="csm1" href="1"
+          style="box-shadow: inset 0.2vh 0.2vh 1vh #cdcdcd, inset -0.3vh -0.3vh 0.6vh #ffffff"
+          onclick="changeSearchMethod(1)">单曲</span>
+        <span class="change_search_method" id="csm1000" href="1000" onclick="changeSearchMethod(1000)">歌单</span>
+        <span class="change_search_method" id="csm10" href="10" onclick="changeSearchMethod(10)">专辑</span>
         <span class="fas fa-arrow-right" id="arrow" href="forward"></span>
       </div>
 
@@ -152,5 +192,6 @@
 <script src="source/js/list.js"></script>
 <script src="source/js/main.js"></script>
 <script src="source/js/search.js"></script>
+<script src="source/js/playing.js"></script>
 
 </html>

@@ -1,0 +1,124 @@
+.playing_div{
+    width: 40vw;
+    border-radius: 10%;
+    position: relative;
+}
+
+.playing_info_div{
+    width: 100%;
+    height: 15vw;
+    position: relative;
+}
+
+.playing_cover{
+    width: 15vw;
+    height: 15vw;
+    border-radius: 10%;
+    box-shadow: 1vh 1vh 2vh #cdcdcd,
+    -0.9vh -0.9vh 2vh #ffffff;
+    float: left;
+    position: absolute;
+}
+
+.playing_info{
+    width: 22vw;
+    height: 15vw;
+    position: absolute;
+    left: 17vw;
+}
+
+.playing_SA{
+    font-size: 1vw;
+    color: #00000070;
+}
+
+.playing_name{
+    font-size: 2vw;
+    color: #000000;
+    font-weight: bold;
+    width: 100%;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playing_bar{
+    width: 95%;
+    height: 15vw;
+    border-radius: 1.5vw;
+    box-shadow: 0.3vh 0.3vh 1vh #cdcdcd, -0.3vh -0.3vh 1vh #ffffff;
+    float: left;
+    position: absolute;
+    margin-top: 10%;
+    justify-content: center;
+    display: flex;
+}
+
+.playing_progress{
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    width: 90%;
+    height: 18px;
+    border-radius: 18px;
+    box-shadow: 0.3vh 0.3vh 1vh #cdcdcd, -0.3vh -0.3vh 1vh #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playing_totalProgress{
+    cursor: pointer;
+    background-color: #f1f1f1;
+    transition: all 0.1s linear;
+    width: 98%;
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0.2vh 0.2vh 1vh #cdcdcd,inset -0.2vh -0.2vh 1vh #ffffff;
+}
+
+.playing_currentProgress {
+    width: 0;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #00a1d6;
+    transition: all 0.1s linear;
+}
+
+#playing_bar_process{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.playing_album_div{
+    width: 10vw;
+}
+
+.playing_album_cover{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 10%;
+    box-shadow: 1vh 1vh 2vh #cdcdcd,
+    -0.9vh -0.9vh 2vh #ffffff;
+    transition: all 0.1s linear;
+    background-size: 100% 100% !important;
+}
+
+.playing_album_cover:hover{
+    transform: scale(1.03);
+    transition: all 0.1s linear;
+}
+
+#under_cover{
+    width: 100%;
+    color: #00000070;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

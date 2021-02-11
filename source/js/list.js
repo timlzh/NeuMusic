@@ -95,6 +95,9 @@ function initItem() {
     $(".res_play i").unbind('click').click(function () {
         itemClick($(this));
     })
+    $(".playing_album_cover").unbind('click').click(function () {
+        itemClick($(this));
+    })
 }
 
 //列表item点击事件
@@ -131,7 +134,6 @@ function itemClick(el) {
             let fl = likeASong(id);
             $(this).attr("style", (fl ? "color: #000000" : "color: #E79796"));
         }
-
     } else if (type == "album") {
         let api_adr = "http://csgo.itstim.xyz:3000/album?" + cookieStr + "&id=" + id;
         let data;
@@ -147,6 +149,7 @@ function itemClick(el) {
             }
         }
     }
+    showPlayingList();
 }
 
 //下一首播放

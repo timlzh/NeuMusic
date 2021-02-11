@@ -61,6 +61,7 @@ shuffledPlayingIndexs = localStorage.shuffledPlayingIndexs ? JSON.parse(localSto
 //初始化
 $(".me").hide();
 $(".list").hide();
+$(".playing_div").hide();
 transInputIcon(".search_input", ".search_btn");
 transInputIcon("#account_input", ".fa-envelope");
 transInputIcon("#account_input", ".fa-mobile-alt");

@@ -17,6 +17,9 @@ function startToPlay() {
                 $(".currentProgress").css({
                     'width': ratio * 100 + '%'
                 });
+                $(".playing_currentProgress").css({
+                    'width': ratio * 100 + '%'
+                });
             }
         }, 100)
     }
@@ -38,8 +41,15 @@ function playSongFromId(id, play) {
         $("#bar_singer").html(playing.songs[0].ar[0].name);
         $("#bar_album").html(playing.songs[0].al.name);
         $("#bar_heart").attr("name", id);
+        $(".playing_cover").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
+        $(".playing_name").html(playing.songs[0].name);
+        $(".playing_singer").html(playing.songs[0].ar[0].name);
+        $(".playing_album").html(playing.songs[0].al.name);
+        $(".playing_album_cover").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
+        $(".playing_album_cover").attr("id", playing.songs[0].al.id);
         if (likeList.indexOf(parseInt(id)) >= 0) $("#bar_heart").attr("style", "color: #E79796");
         else $("#bar_heart").attr("style", "color: #000000");
+        initItem();
         let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
         let data;
         if (data = ajaxGet(api_adr)) {
@@ -50,6 +60,7 @@ function playSongFromId(id, play) {
             $(".playing").attr("src", audioUrl);
             if (play) startToPlay();
             else pausePlaying();
+            showPlayingList();
         }
     } else return false;
     return true;
@@ -89,6 +100,7 @@ function changeSong(dir) {
     localStorage.playingIndex = playingIndex = ((!dir) ? ((playingIndex + playingListId.length - 1) % playingListId.length) : ((playingIndex + 1) % playingListId.length));
     if (playMethod == 2) playSongFromId(playingListId[shuffledPlayingIndexs[playingIndex]], true);
     else playSongFromId(playingListId[playingIndex], true);
+    showPlayingList();
 }
 
 
@@ -98,6 +110,7 @@ function changeLoopMethod() {
     $(".bar_loop_svg").html("");
     $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');
     if (playMethod == 2) shuffle();
+    showPlayingList();
 }
 
 //获取喜欢列表
