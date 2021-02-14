@@ -1,6 +1,12 @@
-<p align="center" style="font-size: 30px">NeuMusic</p>
-
-<p align="center">一个新拟态风格的第三方网易云音乐播放器<p>
+<strong>
+    <h2 align="center">NeuMusic    
+    </br>
+    <img src = "./source/img/icon.png" height="128px" weight="128px">
+    </h2>
+</strong>
+<p align="center">
+    一个新拟态风格的第三方网易云音乐播放器
+</p>
 
 ## 特性
 
