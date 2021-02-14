@@ -38,25 +38,7 @@
 
    部署网易云 API，详情参见 [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
-3. 更改api地址
-
-   打开`./source/js/main.js`，将第二行apiAd的值修改为api地址。**一定不要忘了地址最后的`/`**
-
-   ```javascript
-   //api地址
-   let apiAd = "";//一定不要忘了地址最后的'/'
-   ```
-
-   如:
-
-   ```javascript
-   //api地址
-   let apiAd = "http://127.0.0.1:3000/";//一定不要忘了地址最后的'/'
-   ```
-
-   如果你是在本地部署的api，则api地址为`"http://localhost:3000/"`
-
-4. 部署网页
+3. 部署网页
 
    - Windows
 
@@ -108,6 +90,12 @@
 
      请使用Apache服务或Nginx服务部署。
 
+4. 在网页中输入api地址，一定不要忘了地址最后的/
+   
+   如: `http://127.0.0.1:3000/`
+   
+   如果你是在本地部署的api，则api地址为`"http://localhost:3000/"`
+
 ## 贡献者
 
 @[Timlzh](https://github.com/timlzh/)
@@ -115,6 +103,7 @@
 ## 鸣谢
 
 [qier222/YesPlayMusic](https://github.com/qier222/YesPlayMusic)
+
 [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
 

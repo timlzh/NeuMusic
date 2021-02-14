@@ -1,7 +1,5 @@
-//api地址
-let apiAd = "http://csgo.itstim.xyz:3000/";//一定不要忘了地址最后的'/'
-
 //变量声明
+let apiAd = localStorage.apiAd;
 let loginMethod = 1;
 let loginStatus = 0;
 let loginCookie = localStorage.cookie;
@@ -65,7 +63,17 @@ shuffledPlayingIndexs = localStorage.shuffledPlayingIndexs ? JSON.parse(localSto
 $(".me").hide();
 $(".list").hide();
 $(".playing_div").hide();
-if(apiAd == "") alert("请正确填入api地址!");
+if(!apiAd){
+    localStorage.apiAd = apiAd = prompt("请输入api地址 \n 一定不要忘了地址最后的/","http://localhost:3000/");
+    location.reload();
+}else{
+    let api_adr = apiAd + "search/hot";
+    let data;
+    if (!(data = ajaxGet(api_adr))) { 
+        localStorage.apiAd = apiAd = "";
+        location.reload();
+    }
+}
 transInputIcon(".search_input", ".search_btn");
 transInputIcon("#account_input", ".fa-envelope");
 transInputIcon("#account_input", ".fa-mobile-alt");
