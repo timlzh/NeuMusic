@@ -1,3 +1,6 @@
+//api地址
+let apiAd = "http://csgo.itstim.xyz:3000/";//一定不要忘了地址最后的'/'
+
 //变量声明
 let loginMethod = 1;
 let loginStatus = 0;
@@ -62,6 +65,7 @@ shuffledPlayingIndexs = localStorage.shuffledPlayingIndexs ? JSON.parse(localSto
 $(".me").hide();
 $(".list").hide();
 $(".playing_div").hide();
+if(apiAd == "") alert("请正确填入api地址!");
 transInputIcon(".search_input", ".search_btn");
 transInputIcon("#account_input", ".fa-envelope");
 transInputIcon("#account_input", ".fa-mobile-alt");

@@ -6,7 +6,7 @@
     "keywords": [ "demo", "node-webkit" ],
     "window": {
       "title": "node-webkit demo", 
-      "icon": "",
+      "icon": "./icon.ico",
       "toolbar": false,
       "frame": true,
       "width": 1440,

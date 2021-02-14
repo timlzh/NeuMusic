@@ -67,12 +67,12 @@ function changeList(list_info, items, type, el) {
     }
     console.log(items);
     appendToWhere = el;
-    el.css("display","block");
+    el.css("display", "block");
     if (type == "playlist") items.forEach(appendPlaylistToList);
     else if (type == "song") items.forEach(appendSongToList);
     else if (type == "album") items.forEach(appendAlbumToList);
-    else if (type == "playlistCover"){
-        el.css("display","grid");
+    else if (type == "playlistCover") {
+        el.css("display", "grid");
         items.forEach(appendPlaylistCoverToList);
     }
     initItem();
@@ -107,7 +107,7 @@ function itemClick(el) {
     let pro = el.attr('pro');
     console.log(pro);
     if (type == "playlist") {
-        let api_adr = "http://csgo.itstim.xyz:3000/playlist/detail?" + cookieStr + "&id=" + id;
+        let api_adr = apiAd + "playlist/detail?" + cookieStr + "&id=" + id;
         let data;
         if (data = ajaxGet(api_adr)) {
             changeList(data.playlist.name, data.playlist.tracks, "song", $("#item_list"));
@@ -135,13 +135,13 @@ function itemClick(el) {
             $(this).attr("style", (fl ? "color: #000000" : "color: #E79796"));
         }
     } else if (type == "album") {
-        let api_adr = "http://csgo.itstim.xyz:3000/album?" + cookieStr + "&id=" + id;
+        let api_adr = apiAd + "album?" + cookieStr + "&id=" + id;
         let data;
         if (data = ajaxGet(api_adr)) {
             let songs = data.songs;
             changeList(data.album.name, songs, "song", $("#item_list"));
             $("#item_list").show();
-            if(pro == "play"){
+            if (pro == "play") {
                 playSongFromId(songs[0].id, true);
                 localStorage.playingListId = JSON.stringify(playingListId = listId);
                 localStorage.playingIndex = playingIndex = 0;
@@ -193,7 +193,7 @@ function playAtNext(id) {
 
 //从id获取歌曲
 function getSongsFromTrackIds(ids) {
-    let api_adr = "http://csgo.itstim.xyz:3000/song/detail?" + cookieStr + "&ids=" + ids;
+    let api_adr = apiAd + "song/detail?" + cookieStr + "&ids=" + ids;
     let data;
     if (data = ajaxGet(api_adr)) listSongs = data.songs;
 }

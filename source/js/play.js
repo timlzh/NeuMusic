@@ -38,7 +38,7 @@ function pausePlaying() {
 
 //播放歌曲
 function playSongFromId(id, play) {
-    let api_adr = "http://csgo.itstim.xyz:3000/song/detail?" + cookieStr + "&ids=" + id;
+    let api_adr = apiAd + "song/detail?" + cookieStr + "&ids=" + id;
     if (playing = ajaxGet(api_adr)) {
         $(".bar_cover_img").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
         $("#bar_song_name").html(playing.songs[0].name);
@@ -52,15 +52,15 @@ function playSongFromId(id, play) {
         $(".playing_album").html(playing.songs[0].al.name);
         $(".playing_album_cover").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
         $(".playing_album_cover").attr("id", playing.songs[0].al.id);
-        if (likeList.indexOf(parseInt(id)) >= 0){
+        if (likeList.indexOf(parseInt(id)) >= 0) {
             $("#bar_heart").attr("style", "color: #E79796");
             $("#playing_bar_heart").attr("style", "color: #E79796");
-        } 
-        else{
-            $("#bar_heart").attr("style", "color: #000000");  
-            $("#playing_bar_heart").attr("style", "color: #000000");      
         }
-        let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
+        else {
+            $("#bar_heart").attr("style", "color: #000000");
+            $("#playing_bar_heart").attr("style", "color: #000000");
+        }
+        let api_adr = apiAd + "song/url?" + cookieStr + "&id=" + id;
         let data;
         if (data = ajaxGet(api_adr)) {
             console.log(data);
@@ -79,7 +79,7 @@ function playSongFromId(id, play) {
 
 //检查歌曲可用性
 function checkSongAvalibility(id) {
-    let api_adr = "http://csgo.itstim.xyz:3000/check/music?id=" + id;
+    let api_adr = apiAd + "check/music?id=" + id;
     let avalibility = false;
     let data;
     if (data = ajaxGet(api_adr)) avalibility = data.success;
@@ -125,7 +125,7 @@ function changeLoopMethod() {
 
 //获取喜欢列表
 function getLikeList(uid) {
-    let api_adr = "http://csgo.itstim.xyz:3000/likelist?" + cookieStr + "&uid=" + uid + "&timestamp=" + stamp();
+    let api_adr = apiAd + "likelist?" + cookieStr + "&uid=" + uid + "&timestamp=" + stamp();
     let data;
     if (data = ajaxGet(api_adr)) likeList = data.ids;
 }

@@ -19,6 +19,6 @@ function getRatio(el) {
 //绑定红心功能
 $("#bar_heart").unbind('click').click(function () {
     let fl = likeASong($(this).attr("name"));
-    $(this).attr("style",(fl?"color: #000000":"color: #E79796"));
+    $(this).attr("style", (fl ? "color: #000000" : "color: #E79796"));
 }
 )

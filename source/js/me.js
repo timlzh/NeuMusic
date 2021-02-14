@@ -1,6 +1,6 @@
 $(".nav_avatar").unbind('click').click(function () {
     hideAll();
-    if(loginStatus) $(".me").show();
+    if (loginStatus) $(".me").show();
     else $(".login").show();
 })
 
@@ -34,7 +34,7 @@ function greeting() {
 
 //获取用户的播放列表
 function getUserPlayLists() {
-    let api_adr = "http://csgo.itstim.xyz:3000/user/playlist?" + cookieStr + "&uid=" + uid + "&timestamp=" + stamp();
+    let api_adr = apiAd + "user/playlist?" + cookieStr + "&uid=" + uid + "&timestamp=" + stamp();
     let data;
     if (data = ajaxGet(api_adr)) {
         userPlayLists = data;
@@ -47,7 +47,7 @@ function getUserPlayLists() {
             }
         });
         $(userPlayLists.playlist).each(function (i, pl) {
-            if(pl.subscribed) userFavPlaylistIds[i] = pl.id;
+            if (pl.subscribed) userFavPlaylistIds[i] = pl.id;
             else userCreatPlaylistIds[i] = pl.id;
         });
     }
@@ -95,7 +95,7 @@ $(".fav_lists").unbind('click').click(function () {
 //红心歌曲
 function likeASong(id) {
     let fl = likeList.indexOf(parseInt(id));
-    let api_adr = "http://csgo.itstim.xyz:3000/like?" + cookieStr + "&id=" + id + "&like=" + !(fl + 1);
+    let api_adr = apiAd + "like?" + cookieStr + "&id=" + id + "&like=" + !(fl + 1);
     if (ajaxGet(api_adr)) {
         getLikeList(uid);
         return (fl + 1);
@@ -109,7 +109,7 @@ function starAList(id) {
         t = 2;
         subscribedLists.splice(subscribedLists.indexOf(parseInt(id)), 1);
     }
-    let api_adr = "http://csgo.itstim.xyz:3000/playlist/subscribe?" + cookieStr + "&id=" + id + "&t=" + t;
+    let api_adr = apiAd + "playlist/subscribe?" + cookieStr + "&id=" + id + "&t=" + t;
     if (ajaxGet(api_adr)) return t;
     else alert("收藏失败");
 }
