@@ -118,7 +118,8 @@
     width: 100%;
     color: #00000070;
     white-space: nowrap;
-    display: inline-block;
+    display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
+    justify-content: center;
 }

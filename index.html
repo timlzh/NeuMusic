@@ -127,11 +127,11 @@
             <embed src="source/img/loop.svg" type="image/svg+xml"
               pluginspage="http://www.adobe.com/svg/viewer/install/" />
           </div>
-          <i class="fas fa-backward" id="bar_backward" onclick="changeSong(0)"></i>
-          <i class="fas fa-play" id="bar_play" onclick="startToPlay()"></i>
-          <i class="fas fa-pause" id="bar_pause" style="display:none" onclick="pausePlaying()"></i>
-          <i class="fas fa-forward" id="bar_forward" onclick="changeSong(1)"></i>
-          <i class="fas fa-heart" id="bar_heart"></i>
+          <i class="fas fa-backward" id="playing_bar_backward" onclick="changeSong(0)"></i>
+          <i class="fas fa-play" id="playing_bar_play" onclick="startToPlay()"></i>
+          <i class="fas fa-pause" id="playing_playing_bar_pause" style="display:none" onclick="pausePlaying()"></i>
+          <i class="fas fa-forward" id="playing_bar_forward" onclick="changeSong(1)"></i>
+          <i class="fas fa-heart" id="playing_bar_heart"></i>
         </div>
       </div>
     </div>
@@ -163,8 +163,8 @@
       <div class="currentProgress"></div>
     </div>
     <div class="bar_cover_img"></div>
-    <div class="bar_song_info">
-      <span class="item_name" id="bar_song_name"></span>
+    <div class="bar_song_info" onclick="showPlaying()">
+      <span class="item_name" id="bar_song_name" onclick="showPlaying()"></span>
       <br>
       <div class="song_SA">
         <a class="singer" id="bar_singer"></a> - <a class="album" id="bar_album"></a>

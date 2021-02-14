@@ -19,7 +19,7 @@ function stamp() {
     return timestamp;
 }
 
-//获取专辑作者
+//获取播放列表作者
 function getPlaylistAuthor(id) {
     let api_adr = "http://csgo.itstim.xyz:3000/playlist/detail?" + cookieStr + "&id=" + id;
     let data;

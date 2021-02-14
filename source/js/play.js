@@ -4,6 +4,8 @@ function startToPlay() {
         audio.play();
         $('#bar_play').hide();
         $('#bar_pause').show();
+        $('#playing_bar_play').hide();
+        $('#playing_bar_pause').show();
         //设置播放状态检查定时器
         let timer = setInterval(function () {
             if (audio.ended) {
@@ -30,6 +32,8 @@ function pausePlaying() {
     audio.pause();
     $('#bar_play').show();
     $('#bar_pause').hide();
+    $('#playing_bar_play').show();
+    $('#playing_bar_pause').hide();
 }
 
 //播放歌曲
@@ -41,15 +45,21 @@ function playSongFromId(id, play) {
         $("#bar_singer").html(playing.songs[0].ar[0].name);
         $("#bar_album").html(playing.songs[0].al.name);
         $("#bar_heart").attr("name", id);
+        $("#playing_bar_heart").attr("name", id);
         $(".playing_cover").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
         $(".playing_name").html(playing.songs[0].name);
         $(".playing_singer").html(playing.songs[0].ar[0].name);
         $(".playing_album").html(playing.songs[0].al.name);
         $(".playing_album_cover").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
         $(".playing_album_cover").attr("id", playing.songs[0].al.id);
-        if (likeList.indexOf(parseInt(id)) >= 0) $("#bar_heart").attr("style", "color: #E79796");
-        else $("#bar_heart").attr("style", "color: #000000");
-        initItem();
+        if (likeList.indexOf(parseInt(id)) >= 0){
+            $("#bar_heart").attr("style", "color: #E79796");
+            $("#playing_bar_heart").attr("style", "color: #E79796");
+        } 
+        else{
+            $("#bar_heart").attr("style", "color: #000000");  
+            $("#playing_bar_heart").attr("style", "color: #000000");      
+        }
         let api_adr = "http://csgo.itstim.xyz:3000/song/url?" + cookieStr + "&id=" + id;
         let data;
         if (data = ajaxGet(api_adr)) {
@@ -61,6 +71,7 @@ function playSongFromId(id, play) {
             if (play) startToPlay();
             else pausePlaying();
             showPlayingList();
+            initItem();
         }
     } else return false;
     return true;
@@ -102,7 +113,6 @@ function changeSong(dir) {
     else playSongFromId(playingListId[playingIndex], true);
     showPlayingList();
 }
-
 
 //更改播放模式
 function changeLoopMethod() {

@@ -1,3 +1,4 @@
+//显示正在播放页面
 function showPlaying() {
     hideAll();
     $(".playing_div").show();
@@ -23,6 +24,7 @@ function getRatioPlaying(el) {
     return ratio;
 }
 
+//显示播放列表
 function showPlayingList() {
     if($(".playing_div").css("display") == "none") return;
     let playingIds;
@@ -39,3 +41,10 @@ function showPlayingList() {
     let data;
     if (data = ajaxGet(api_adr)) changeList("播放列表",data.songs,"song",$("#item_list"));
 }
+
+//绑定红心功能
+$("#playing_bar_heart").unbind('click').click(function () {
+    let fl = likeASong($(this).attr("name"));
+    $(this).attr("style",(fl?"color: #000000":"color: #E79796"));
+}
+)
