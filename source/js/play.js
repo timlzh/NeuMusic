@@ -24,6 +24,7 @@ function startToPlay() {
                 });
             }
         }, 100)
+        navigator.mediaSession.playbackState = "playing";
     }
 }
 
@@ -34,12 +35,21 @@ function pausePlaying() {
     $('#bar_pause').hide();
     $('#playing_bar_play').show();
     $('#playing_bar_pause').hide();
+    navigator.mediaSession.playbackState = "Paused";
 }
 
 //播放歌曲
 function playSongFromId(id, play) {
     let api_adr = apiAd + "song/detail?" + cookieStr + "&ids=" + id;
     if (playing = ajaxGet(api_adr)) {
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: playing.songs[0].name,
+                artist: playing.songs[0].ar[0].name,
+                album: playing.songs[0].al.name,
+                artwork: [{ src: playing.songs[0].al.picUrl }]
+            });
+        }
         $(".bar_cover_img").css("background", 'url(' + playing.songs[0].al.picUrl + ') no-repeat');
         $("#bar_song_name").html(playing.songs[0].name);
         $("#bar_singer").html(playing.songs[0].ar[0].name);
@@ -70,7 +80,6 @@ function playSongFromId(id, play) {
             $(".playing").attr("src", audioUrl);
             if (play) startToPlay();
             else pausePlaying();
-            showPlayingList();
             initItem();
         }
     } else return false;

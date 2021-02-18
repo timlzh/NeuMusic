@@ -82,3 +82,11 @@ $("#loginMethodChanger").click();
 initLogin();
 playSongFromId(lastPlayedId, false);
 $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');
+navigator.mediaSession.setActionHandler('play',startToPlay);
+navigator.mediaSession.setActionHandler('pause',pausePlaying);
+navigator.mediaSession.setActionHandler('previoustrack', function () {
+    changeSong(0);
+});
+navigator.mediaSession.setActionHandler('nexttrack', function () {
+    changeSong(1);
+});

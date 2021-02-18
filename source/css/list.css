@@ -95,3 +95,7 @@
     background: linear-gradient(145deg, #d9d9d9, #ffffff);
     transition: all 0.1s linear;
 }
+
+.res_cover{
+    background-size: 100% 100% !important;
+}

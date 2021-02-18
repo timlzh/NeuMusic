@@ -52,7 +52,7 @@ function appendAlbumToList(item) {
 
 //将歌单封面照添加到list
 function appendPlaylistCoverToList(item) {
-    var itemHtml = '<div class="res"><div class="res_cover" id="pic" style="background: url(' + item.coverImgUrl + ') no-repeat;"><div class="res_play" id="' + item.id + '" href="playlist"><i class = "fas fa-play" id="' + item.id + '" pro = "play" href="playlist"></i></div></div><div class="res_name" id="' + item.id + '" href="playlist"><a>' + item.name + '</a></div></div>';
+    var itemHtml = '<div class="res"><div class="res_cover" id="' + item.id + '" href="playlist" style="background: url(' + item.coverImgUrl + ') no-repeat;"><div class="res_play" id="' + item.id + '" href="playlist"><i class = "fas fa-play" id="' + item.id + '" pro = "play" href="playlist"></i></div></div><div class="res_name" id="' + item.id + '" href="playlist"><a>' + item.name + '</a></div></div>';
     $(itemHtml).appendTo(appendToWhere);
 }
 
@@ -84,6 +84,9 @@ function initItem() {
         itemClick($(this));
     });
     $(".process i").unbind('click').click(function () {
+        itemClick($(this));
+    })
+    $(".res_cover").unbind('click').click(function () {
         itemClick($(this));
     })
     $(".res_play").unbind('click').click(function () {
