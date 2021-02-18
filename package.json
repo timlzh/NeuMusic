@@ -1,34 +1,32 @@
 {
-    "main": "index.html", 
-    "name": "neumusic",
-    "description": "demo app of NeuMusic",
-    "version": "1.0.0",
-    "keywords": [ "demo", "node-webkit" ],
-    "window": {
-      "title": "node-webkit demo", 
-      "icon": "./icon.ico",
-      "toolbar": false,
-      "frame": true,
-      "width": 1440,
-      "height": 720, 
-      "position": "center", 
-      "min_width": 400,
-      "min_height": 200,
-      "max_width": 9999,
-      "max_height": 9999,
-      "as_desktop" :false,
-      "resizable":true,
-      "always-on-top":false,
-      "fullscreen":false,
-      "show_in_taskbar":true,
-      "show":true, 
-      "kiosk":false 
-   
+  "main": "index.html",
+  "name": "neumusic",
+  "description": "demo app of NeuMusic",
+  "version": "0.1.1",
+  "keywords": [
+    "demo",
+    "node-webkit"
+  ],
+  "single-instance": true,
+  "window": {
+    "title": "NeuMusic",
+    "icon": "source/img/icon.png",
+    "toolbar": false,
+    "frame": true,
+    "width": 1440,
+    "height": 720,
+    "position": "center",
+    "min_width": 1440,
+    "min_height": 720,
+    "resizable": true,
+    "fullscreen": false,
+    "show_in_taskbar": true,
+    "show": true,
+    "kiosk": false
   },
-    "webkit": {
-      "plugin": true,
-      "java":false, 
-      " page-cache":true 
-      }
+  "webkit": {
+    "plugin": true,
+    "java": false,
+    "page-cache": true
   }
-  
+}
