@@ -27,6 +27,7 @@ let searchMethod = 1;
 let appendToWhere;
 let nowPage = 0;
 let nowWord = "";
+let QRCode=0;
 
 //隐藏contianer中的所有元素(可改进)
 function hideAll() {
@@ -36,7 +37,7 @@ function hideAll() {
 }
 
 //ajax请求
-function ajaxGet(api_adr) {
+function ajaxGet(api_adr,checkCode = true) {
     let res;
     $.ajax({
         url: api_adr,
@@ -45,7 +46,7 @@ function ajaxGet(api_adr) {
         async: false,
         success: function (data) {
             console.log(data);
-            if (data.code == "200") res = data;
+            if (data.code == "200" || (!checkCode)) res = data;
         }
     });
     if (res) return res;
@@ -79,6 +80,7 @@ transInputIcon("#account_input", ".fa-envelope");
 transInputIcon("#account_input", ".fa-mobile-alt");
 transInputIcon("#pwd_input", ".fa-lock");
 $("#loginMethodChanger").click();
+$(".login_qrcode_box").hide();
 initLogin();
 playSongFromId(lastPlayedId, false);
 $(".bar_loop_svg").html('<embed src="' + playMethodIcon[playMethod] + '" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />');

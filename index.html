@@ -63,15 +63,24 @@
 
     <!-- 登录box -->
     <div class="login">
-      <div class="login_box"><i class="fas fa-envelope"></i><i class="fas fa-mobile-alt"></i><input id="account_input"
-          placeholder="请输入网易云音乐账号">
+      <div class="login_box">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-mobile-alt"></i>
+        <input id="account_input" placeholder="请输入网易云音乐账号">
       </div>
-      <div class="login_box"><i class="fas fa-lock"></i><input id="pwd_input" type="password" placeholder="请输入网易云音乐密码">
+
+      <div class="login_box">
+        <i class="fas fa-lock"></i>
+        <input id="pwd_input" type="password" placeholder="请输入网易云音乐密码">
+      </div>
+
+      <div class="login_qrcode_box">
+        <img id="pic" class="login_qrcode"></img>
       </div>
 
       <div class="login_btn_box">
-        <div class="login_btn"><i class="fas fa-check"></i></div>
-        <div class="login_btn"><i class="far fa-address-card"></i></div>
+        <div class="login_btn" id="login"><i class="fas fa-check"></i></div>
+        <div class="login_btn" id="login_with_qrcode"><i class="fas fa-qrcode" id="login_btn_icon"></i></i></div>
       </div>
 
       <div class="change_login"><a id="loginMethodChanger">使用手机号登录</a></div>
@@ -110,9 +119,9 @@
             <span class="playing_singer"></span>-<span class="playing_album"></span></br>
           </div>
           <span class="playing_name"></span>
-          <div class = "playing_album_div">
+          <div class="playing_album_div">
             <div class="playing_album_cover" href="album"></div>
-            <span class="playing_album" id ="under_cover"></span>
+            <span class="playing_album" id="under_cover"></span>
           </div>
         </div>
       </div>

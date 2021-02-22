@@ -27,3 +27,8 @@ function getPlaylistAuthor(id) {
         return data.playlist.creator.nickname;
     }
 }
+
+//获取二维码图片
+function getQRCodeImg(url) {
+    return ("https://api.pwmqr.com/qrcode/create/?url=" + url);
+}
