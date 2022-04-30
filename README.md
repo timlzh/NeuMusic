@@ -8,6 +8,10 @@
     一个新拟态风格的第三方网易云音乐播放器
 </p>
 
+##Demo
+
+http://music.msfs2020.com/
+
 ## 特性
 
 - 原生html + javascript/jQuery + css 开发
