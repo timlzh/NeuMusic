@@ -8,9 +8,9 @@
     一个新拟态风格的第三方网易云音乐播放器
 </p>
 
-##Demo
+## Demo
 
-http://music.msfs2020.com/
+http://music.easierflying.com/
 
 ## 特性
 
@@ -50,7 +50,7 @@ http://music.msfs2020.com/
    
    如果你是在本地部署的api，则api地址为`"http://localhost:3000/"`
    
-   可以填写我提供的试用地址``"http://msfs2020.com:3000/"``
+   可以填写我提供的试用地址``"http://musicapi.easierflying.com/"``
 
 ## 贡献者
 
